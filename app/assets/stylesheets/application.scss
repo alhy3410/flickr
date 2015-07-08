@@ -1,6 +1,42 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+html{
+  background-color: black;
+}
+
 body{
-  margin: 3% 0 0 3%;
+  background-color: white;
+  margin: 3% 2%;
+}
+#welcome{
+  margin: 0 5%;
+  height: 100%;
+  
+}
+#display{
+  margin: 2%;
+}
+
+#displayall{
+  margin: 2%;
+  width : 70%;
+}
+
+.tableall{
+  margin: 0 25% 0 25%;
+  border:none;
+  width: 70%;
+}
+
+.muted{
+  opacity:.5;
+}
+
+.links{
+  float:right;
+}
+
+.each-photo{
+  margin: 0 15%;
 }

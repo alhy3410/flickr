@@ -6,3 +6,9 @@ describe Photo do
   it { should validate_presence_of :camera}
   it { should validate_presence_of :details}
 end
+
+FactoryGirl.define do
+  factory(:photo) do
+    photographer('Andrew')
+  end
+end

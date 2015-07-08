@@ -1,9 +1,29 @@
-<h1>Photos</h1>
+<div id="displayall">
+  <h1>Photos</h1>
+  <hr>
+  
+  <table class="tableall">
+    <thead>
+      <tr>
+        <th>Picture</th>
+        <th>Photographer</th>
+        <th>Date Taken</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @photos.each do |photo| %>
+      <tr>
+        <td><%= link_to image_tag(photo.image.url(:thumb)), photo_path(photo) %></td>
+        <td><%= link_to photo.photographer, photo_path(photo) %></td>
+        <td><span class="muted"><%= photo.datetaken %></span></td>
+      </tr>
+      <% end %>
 
-<ul>
-  <% @photos.each do |photo| %>
-  <li><%= link_to photo.photographer, photo_path(photo) %></li>
-  <% end %>
-</ul>
+    </tbody>
+  </table>
+  <hr>
+  <div class="links">
+    <%= link_to "Add a photo", new_photo_path %>
+  </div>
 
-<%= link_to "Add a photo", new_photo_path %>
+</div>

@@ -1,15 +1,28 @@
-<h1><%= @photo.photographer %></h1>
-<h3><%= @photo.datetaken %></h3>
-<h3><%= @photo.camera %></h3>
-<h3><%= @photo.details %></h3>
-
-<%= if @photo.user == current_user %>
-<%= link_to "Edit Photo Details", edit_photo_path(@photo) %>
-<%= link_to "Delete Photo", photo_path(@photo),
-:data => {:confirm => "Are you sure you want to delete this photo?",
-  :method => "delete"} %>
-<% end %>
-
-<p>
-  <%= link_to 'Return to All Photos', photos_path %>
-</p>
+<div class="each-photo">
+  <div class="photo-details">
+    <h1>Photographer: <%= @photo.photographer %></h1>
+    <h3>Date Taken: <%= @photo.datetaken %></h3>
+    <h3>Camera Used: <%= @photo.camera %></h3>
+    <h4>Details About The Photo: <%= @photo.details %></h4>
+    <h3><%= image_tag @photo.image.url(:large) %></h3>
+  </div>
+  <hr>
+  <div class="user-abilities">
+    <% if @photo.user == current_user %>
+    <%= link_to "Edit Photo Details", edit_photo_path(@photo) %> ||
+    <%= link_to "Delete Photo", photo_path(@photo),
+    :data => {:confirm => "Are you sure you want to delete this photo?",
+      :method => "delete"} %>
+      <% end %>
+  </div>
+  <hr>
+  <div class="photo-details">
+    <h4>Image Details</h4>
+    <h5>Image Type: <%= @photo.image_content_type %></h5>
+    <h5>Image Updated At: <%= @photo.image_updated_at %></h5>
+  </div>
+  <hr>
+  <div class="links">
+    <p><%= link_to 'Return to All Photos', photos_path %></p>
+  </div>
+</div>
