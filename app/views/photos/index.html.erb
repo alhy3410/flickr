@@ -1,0 +1,9 @@
+<h1>Photos</h1>
+
+<ul>
+  <% @photos.each do |photo| %>
+  <li><%= link_to photo.photographer, photo_path(photo) %></li>
+  <% end %>
+</ul>
+
+<%= link_to "Add a photo", new_photo_path %>
