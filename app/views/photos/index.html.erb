@@ -31,9 +31,12 @@
 
         </tbody>
       </table>
-<% else %>
+      <div class="links">
+        <%= link_to "All Photos", photos_path %>
+      </div>
   </div>
   <hr>
+  <% else %>
   <table class="tableall">
     <thead>
       <tr>
@@ -53,7 +56,7 @@
 
     </tbody>
   </table>
-<% end %>  
+<% end %>
   <hr>
   <div class="links">
     <%= link_to "Add a photo", new_photo_path %>

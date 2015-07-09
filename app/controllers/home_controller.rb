@@ -1,6 +1,7 @@
 class HomeController < ApplicationController
   def index
-    @photos = Photo.all
+    randomImageNumber = rand(1..Photo.all.length)
+    @photo = Photo.find(randomImageNumber)
   end
 
 

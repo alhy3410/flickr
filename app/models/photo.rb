@@ -13,7 +13,7 @@ class Photo < ActiveRecord::Base
 
   def self.text_search(query)
     if query.present?
-      where("photographer ilike :q or details ilike :q", q: "%#{query}")
+      where("photographer @@ :q or details @@ :q", q: query)
     end
   end
 end
