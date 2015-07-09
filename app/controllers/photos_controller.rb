@@ -3,6 +3,8 @@ class PhotosController < ApplicationController
 
   def index
     @photos = Photo.all
+    @photosSearched = Photo.text_search(params[:query])
+
   end
 
   def show

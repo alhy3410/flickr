@@ -11,6 +11,7 @@ gem 'devise'
 gem 'bootstrap-sass'
 gem 'paperclip', :git => "git://github.com/thoughtbot/paperclip.git"
 gem 'factory_girl_rails'
+gem 'textacular'
 
 group :development do
   gem 'byebug'

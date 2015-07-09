@@ -7,7 +7,13 @@ class Photo < ActiveRecord::Base
 
   belongs_to :user
 
-  has_attached_file :image, styles: { :large => "600x600>", :thumb => "150x150#" }
+  has_attached_file :image, styles: { :large => "1200x1200>", :thumb => "150x150#", :medium => "300x300#" }
   # , :default_url => "/images/:style/missing.png"
   validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
+
+  def self.text_search(query)
+    if query.present?
+      where("photographer ilike :q or details ilike :q", q: "%#{query}")
+    end
+  end
 end

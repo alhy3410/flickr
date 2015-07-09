@@ -27,6 +27,7 @@
         <li><%= link_to "Home", '/' %></li>
         <li><%= link_to "Photos", photos_path %></li>
       </ul>
+
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>
           <li><%= link_to 'Edit Profile', edit_user_registration_path %></li>

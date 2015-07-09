@@ -1,7 +1,39 @@
 <div id="displayall">
   <h1>Photos</h1>
   <hr>
-  
+  <div class="search">
+    <%= form_tag photos_path, method: :get do %>
+    <p>
+      <%= text_field_tag :query, params[:query] %>
+      <%= submit_tag "Search", name: nil %>
+    </p>
+    <% end %>
+  </div>
+  <hr>
+<% if @photosSearched %>
+  <div class="searchresults">
+      <table class="tableall">
+        <thead>
+          <tr>
+            <th>Picture</th>
+            <th>Photographer</th>
+            <th>Date Taken</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @photosSearched.each do |photo| %>
+          <tr>
+            <td><%= link_to image_tag(photo.image.url(:thumb)), photo_path(photo) %></td>
+            <td><%= link_to photo.photographer, photo_path(photo) %></td>
+            <td><span class="muted"><%= photo.datetaken %></span></td>
+          </tr>
+          <% end %>
+
+        </tbody>
+      </table>
+<% else %>
+  </div>
+  <hr>
   <table class="tableall">
     <thead>
       <tr>
@@ -21,6 +53,7 @@
 
     </tbody>
   </table>
+<% end %>  
   <hr>
   <div class="links">
     <%= link_to "Add a photo", new_photo_path %>
