@@ -59,7 +59,8 @@
 <% end %>
   <hr>
   <div class="links">
-    <%= link_to "Add a photo", new_photo_path %>
+    <%= link_to 'Sort by photographer', photos_path(@photo, :sort_by => "photographer"), method: :get %>
+    || <%= link_to "Add a photo", new_photo_path %>
   </div>
 
 </div>

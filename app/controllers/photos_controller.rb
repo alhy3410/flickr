@@ -2,7 +2,11 @@ class PhotosController < ApplicationController
   before_filter :authenticate_user!, except: [:index, :show]
 
   def index
-    @photos = Photo.all
+    if params[:sort_by] == "photographer"
+      @photos = Photo.all.sort_by{|object| [object.photographer]}
+    else
+      @photos = Photo.all
+    end
     @photosSearched = Photo.text_search(params[:query])
 
   end

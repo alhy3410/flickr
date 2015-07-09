@@ -2,7 +2,6 @@
 @import "bootstrap";
 
 html{
-  background-color: black;
 }
 
 body{
@@ -12,10 +11,10 @@ body{
 #welcome{
   margin: 0 5%;
   height: 100%;
-  
+
 }
 #display{
-  margin: 2%;
+  margin: 0 auto;
 }
 
 #displayall{
@@ -35,6 +34,7 @@ body{
 
 .links{
   float:right;
+  background:white;
 }
 
 .each-photo{
